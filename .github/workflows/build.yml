@@ -1,0 +1,27 @@
+name: Build
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+env:
+  IMAGE_NAME: 192.168.213.134:8077/apicode/apicode-docker-test # 镜像名称
+  TAG: ${{ github.sha }}
+  IMAGE_NAME_TAG: 192.168.213.134:8077/apicode/apicode-docker-test:${{ github.sha }}
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Hello World
+        run: |
+          echo hi keivn.
+          echo hello world!
+
+
+    
